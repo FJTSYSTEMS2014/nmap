@@ -1,3 +1,4 @@
+/* Estilos base */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -9,7 +10,7 @@ body {
 header {
   background-color: #333;
   color: #fff;
-  padding: 1rem;
+  padding: 0.5rem;
   text-align: center;
 }
 
@@ -29,13 +30,13 @@ nav button:hover {
 #search {
   padding: 0.5rem;
   margin: 1rem 0;
-  width: 80%;
-  max-width: 400px;
+  width: 100%;
+  max-width: 100px;
 }
 
 main {
   padding: 1rem;
-  margin-bottom: 60px; /* Margen inferior para evitar superposición con el footer */
+  margin-bottom: 12vh; /* Margen inferior para evitar superposición con el footer */
 }
 
 #content {
@@ -70,12 +71,13 @@ body.dark-mode nav button {
 body.dark-mode footer {
   background-color: #111;
 }
+
 .controls {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 #search {
@@ -98,6 +100,7 @@ body.dark-mode footer {
 #theme-toggle:hover {
   background-color: #777;
 }
+
 /* Steganography Section Styles */
 #steganography-container {
   max-width: 600px;
@@ -157,7 +160,8 @@ body.dark-mode footer {
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-/* Add these styles to your existing styles.css */
+
+/* User Info Container */
 #user-info-container {
   background-color: #f9f9f9;
   border-radius: 8px;
@@ -194,7 +198,8 @@ body.dark-mode #user-info-container {
 body.dark-mode #user-info-container li {
   background-color: #555;
 }
-/* Añade estos estilos a tu archivo styles.css */
+
+/* Scroll to Top Button */
 #scroll-to-top {
   position: fixed;
   bottom: 80px; /* Por encima del footer */
@@ -233,7 +238,7 @@ body.dark-mode #scroll-to-top:hover {
   background-color: #888;
 }
 
-/* Agregar al archivo styles.css */
+/* Cryptography Container */
 .cryptography-container {
   max-width: 800px;
   margin: 0 auto;
@@ -325,4 +330,123 @@ body.dark-mode .crypto-button {
 
 body.dark-mode .crypto-button:hover {
   background-color: #666;
+}
+
+/* Media Queries para Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 0.5rem 0;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  #search {
+    width: 100%;
+    max-width: none;
+  }
+
+  #search-mode {
+    width: 100%;
+  }
+
+  #theme-toggle {
+    width: 100%;
+  }
+
+  main {
+    padding: 0.5rem;
+  }
+
+  #content {
+    max-height: calc(100vh - 150px);
+  }
+
+  footer {
+    padding: 0.5rem;
+  }
+
+  #steganography-container,
+  #user-info-container,
+  .cryptography-container {
+    padding: 10px;
+  }
+
+  .steganography-controls,
+  .encryption-input {
+    gap: 10px;
+  }
+
+  .action-buttons,
+  .encryption-buttons {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .action-buttons button,
+  .crypto-button {
+    width: 100%;
+  }
+
+  #scroll-to-top {
+    bottom: 60px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  nav button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  #search {
+    padding: 0.3rem;
+  }
+
+  #search-mode {
+    padding: 0.3rem;
+  }
+
+  #theme-toggle {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  #steganography-container,
+  #user-info-container,
+  .cryptography-container {
+    padding: 5px;
+  }
+
+  .steganography-controls,
+  .encryption-input {
+    gap: 5px;
+  }
+
+  .action-buttons,
+  .encryption-buttons {
+    gap: 3px;
+  }
+
+  .action-buttons button,
+  .crypto-button {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  #scroll-to-top {
+    bottom: 50px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+  }
 }
