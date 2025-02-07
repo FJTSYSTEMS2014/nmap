@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberSec Tools Hub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>CyberSec Tools Hub</h1>
+    <nav>
+      <!-- Las pestañas se generan dinámicamente -->
+    </nav>
+    <div class="controls">
+      <input type="text" id="search" placeholder="Buscar comandos..." oninput="filterCommands()">
+      <select id="search-mode">
+        <option value="current">Buscar en pestaña actual</option>
+        <option value="global">Buscar globalmente</option>
+      </select>
+      <button id="theme-toggle" onclick="toggleTheme()">Modo Oscuro</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="content">
+      <!-- Contenido dinámico se carga aquí -->
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 CyberSec Tools Hub. Todos los derechos reservados.</p>
+ 
+  </footer>
+
+  <script src="script.js"></script>
+  <button id="scroll-to-top" aria-label="Volver arriba">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+</body>
+</html>
